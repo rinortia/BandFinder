@@ -1,0 +1,55 @@
+.favorite-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: var(--gray-400);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.favorite-btn svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.favorite-btn:hover {
+  color: var(--purple-600);
+  transform: scale(1.05);
+}
+
+.favorite-btn.active {
+  color: var(--purple-600);
+}
+
+.favorite-btn.active svg {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.favorite-btn--overlay {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.favorite-btn--overlay:hover,
+.favorite-btn--overlay.active {
+  background: var(--white);
+}
+
+.favorite-btn--detail svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}

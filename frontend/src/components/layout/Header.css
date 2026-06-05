@@ -1,0 +1,117 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+  height: var(--header-height);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: 1rem;
+}
+
+.logo {
+  display: grid;
+  grid-template-columns: minmax(0, max-content);
+  align-content: center;
+  justify-items: start;
+  gap: 0.125rem;
+  min-width: 140px;
+}
+
+.logo-title,
+.logo-sub {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  justify-self: start;
+}
+
+.logo-title {
+  font-family: 'Playwrite GB J', cursive;
+  font-size: 1.35rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--purple-700);
+}
+
+.logo-sub {
+  padding-left: 0.2em;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  color: var(--gray-500);
+}
+
+.nav {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.nav a {
+  font-weight: 500;
+  color: var(--gray-700);
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--purple-600);
+  border-bottom-color: var(--purple-600);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-actions .btn {
+  box-sizing: border-box;
+  height: 36px;
+  padding: 0 1rem;
+  line-height: 1;
+}
+
+.header-actions .btn-primary {
+  border: 2px solid var(--purple-600);
+}
+
+.header-actions .btn-outline {
+  border: 2px solid var(--purple-600);
+}
+
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: var(--gray-900);
+}
+
+@media (max-width: 768px) {
+  .logo-sub {
+    display: none;
+  }
+
+  .nav {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .header-actions .btn-outline {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .nav {
+    display: none;
+  }
+}

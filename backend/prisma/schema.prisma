@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int              @id @default(autoincrement())
+  email     String           @unique
+  password  String
+  name      String
+  age       Int?
+  role      String           @default("musician")
+  createdAt DateTime         @default(now())
+  profile   MusicianProfile?
+  ads       Ad[]
+  favorites Favorite[]
+}
+
+model MusicianProfile {
+  id          Int     @id @default(autoincrement())
+  userId      Int     @unique
+  user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  city             String
+  instrument       String
+  genres           String  @default("")
+  citySearch       String  @default("")
+  instrumentSearch String  @default("")
+  genresSearch     String  @default("")
+  experience  String
+  photo       String?
+  demoUrl     String?
+  description String?
+  contact     String?
+  updatedAt   DateTime @updatedAt
+}
+
+model Ad {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type        String
+  icon        String   @default("group")
+  city        String
+  genre       String
+  citySearch  String   @default("")
+  genreSearch String   @default("")
+  instrument  String?
+  about       String?
+  lookingFor  String?
+  description String?
+  contact     String?
+  status      String   @default("active")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Favorite {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  targetType String
+  targetId   Int
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, targetType, targetId])
+}

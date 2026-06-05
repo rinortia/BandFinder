@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+*.db
+generated/
+backend/uploads/*
+!backend/uploads/photos/
+!backend/uploads/photos/.gitkeep
