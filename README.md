@@ -85,4 +85,3 @@ npm run dev
 - `musician_profiles` — анкеты музыкантов (1:1 с users)
 - `ads` — объявления
 - `favorites` — избранное
-# BandFinder
